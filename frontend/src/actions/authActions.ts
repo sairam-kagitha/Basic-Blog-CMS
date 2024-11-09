@@ -37,8 +37,8 @@ export const getUser = async () => {
     const cookieStore = await cookies()
     const token = cookieStore.get("jwtToken")?.value
     if (!token) return null
-    const user = decodeJwt(token) as User
-    console.log(user)
+    const {user, exp} = decodeJwt(token) as {user: User; exp: number }
+    // console.log(user)
     return user
 }
 
