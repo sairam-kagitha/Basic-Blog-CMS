@@ -38,6 +38,7 @@ export const getUser = async () => {
     const token = cookieStore.get("jwtToken")?.value
     if (!token) return null
     const user = decodeJwt(token) as User
+    console.log(user)
     return user
 }
 
